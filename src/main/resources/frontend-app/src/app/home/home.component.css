@@ -1,0 +1,10 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.button {
+  margin-bottom: 24px;
+}

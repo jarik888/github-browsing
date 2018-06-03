@@ -1,0 +1,43 @@
+<mat-progress-spinner *ngIf="!userData" class="progress__spinner"
+                      [color]="'primary'"
+                      [mode]="'indeterminate'">
+</mat-progress-spinner>
+
+<div class="center" *ngIf="userData">
+  <h4>User info:</h4>
+  <mat-grid-list cols="2" rowHeight="200px">
+    <mat-grid-tile>
+      <mat-card>
+        <a href="{{ userData.user.html_url }}" target="_blank">
+          <img mat-card-md-image src="{{ userData.user.avatar_url }}" alt="user avatar">
+        </a>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-list>
+        <mat-list-item><span class="label">Login:</span>{{ userData.user.login }}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item><span class="label">Id:</span>{{ userData.user.id }}</mat-list-item>
+        <mat-divider *ngIf="userData.user.name"></mat-divider>
+        <mat-list-item *ngIf="userData.user.name"><span class="label">Name:</span>{{ userData.user.name }}</mat-list-item>
+        <mat-divider *ngIf="userData.user.email"></mat-divider>
+        <mat-list-item *ngIf="userData.user.email"><span class="label">Email:</span>{{ userData.user.email }}</mat-list-item>
+      </mat-list>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-divider></mat-divider>
+
+  <h4>User Repositories list:</h4>
+  <div *ngFor="let repo of userData.repos" >
+    <a href="{{ repo.html_url }}" target="_blank">
+        <mat-grid-list cols="4" rowHeight="50px">
+          <mat-grid-tile>{{ repo.name }}</mat-grid-tile>
+          <mat-grid-tile><span class="label">Created:</span>{{ repo.created_at | date }}</mat-grid-tile>
+          <mat-grid-tile><span class="label">Last push:</span>{{ repo.pushed_at | date }}</mat-grid-tile>
+          <mat-grid-tile><span class="label">Language:</span>{{ repo.language }}</mat-grid-tile>
+        </mat-grid-list>
+    </a>
+    <mat-divider></mat-divider>
+  </div>
+</div>

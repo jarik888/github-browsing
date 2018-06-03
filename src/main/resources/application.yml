@@ -1,0 +1,12 @@
+server.port: 8888
+
+# Cross-Origin Resource Sharing
+allowedOrigin: "http://localhost:4200"
+
+github:
+  # https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/
+  oauth:
+    clientId: "<client_id>"
+    clientSecret: "<client_secret>"
+  authUrl: "https://github.com/login/oauth/access_token"
+  apiUrl: "https://api.github.com"
