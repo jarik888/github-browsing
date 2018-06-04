@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.authService.authenticate(this.code).subscribe(userData => {
       this.userData = userData;
-      console.log('result', userData);
       if (this.userData.user == null) {
         this.router.navigate(['/']);
       }

@@ -11,5 +11,5 @@ public class GithubUserDataResponse {
     private String avatar_url;
     private String html_url;
     private String name;
-    private String email = "jaroslav.artjuh@gmail.com";
+    private String email;
 }
